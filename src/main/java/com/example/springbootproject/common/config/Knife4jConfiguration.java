@@ -1,4 +1,4 @@
-package com.example.springbootproject.config;
+package com.example.springbootproject.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +31,7 @@ public class Knife4jConfiguration {
                 .groupName("2.X版本")
                 .select()
                 //这里指定Controller扫描包路径
-                .apis(RequestHandlerSelectors.basePackage("com.example.springbootproject.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.springbootproject"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;
