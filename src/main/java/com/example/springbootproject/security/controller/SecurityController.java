@@ -22,6 +22,7 @@ public class SecurityController {
     @ApiOperation(value = "债券品种入口")
     @PostMapping("/handle")
     public void handle(@RequestBody DataDTO dataDTO) {
+        //所有入口统一调用分发接口
         iDistributeService.distribute(dataDTO);
     }
 }
