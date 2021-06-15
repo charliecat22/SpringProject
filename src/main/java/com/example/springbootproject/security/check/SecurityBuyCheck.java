@@ -13,6 +13,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class SecurityBuyCheck extends SecurityCheck {
+    private static SecurityBuyCheck securityBuyCheck = new SecurityBuyCheck();
+
+    public SecurityBuyCheck() {
+    }
+
+    public static SecurityBuyCheck getInstance() {
+        return securityBuyCheck;
+    }
+
     @Override
     public <T> boolean check(T pojo) {
         if (super.check(pojo)) {

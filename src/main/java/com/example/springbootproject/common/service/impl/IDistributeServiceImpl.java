@@ -23,14 +23,12 @@ import java.util.List;
 @Slf4j
 public class IDistributeServiceImpl implements IDistributeService {
     @Autowired
-    CommonCheck commonCheck;
-    @Autowired
     private ApplicationContext applicationContext;
 
     @Override
     public <T extends CommonDTO> void distribute(T dto) {
         //校验commonDTO
-        if (commonCheck.check(dto)) {
+        if (CommonCheck.getInstance().check(dto)) {
             //业务逻辑写在下面
             log.info("进入分发逻辑");
             try {

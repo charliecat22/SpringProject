@@ -7,7 +7,6 @@ import com.example.springbootproject.security.check.SecurityBuyCheck;
 import com.example.springbootproject.security.dto.SecurityBuyDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,8 +21,6 @@ import java.util.List;
 @Service(BeanIdConstant.SECURITY_BUY)
 @Slf4j
 public class SecurityBuyExecute implements IExecuteService {
-    @Autowired
-    SecurityBuyCheck securityBuyCheck;
 
     @Override
     public <R> boolean ruleCheck(R rule) {
@@ -38,7 +35,7 @@ public class SecurityBuyExecute implements IExecuteService {
         List<IndicatorResultBO> indicatorResultBOList = new ArrayList<>();
         SecurityBuyDTO securityBuyDTO = new SecurityBuyDTO();
         BeanUtils.copyProperties(pojo, securityBuyDTO);
-        if (securityBuyCheck.check(securityBuyDTO)) {
+        if (SecurityBuyCheck.getInstance().check(securityBuyDTO)) {
             //准备参数
             //调用行为服务接口
             //获得变动数据

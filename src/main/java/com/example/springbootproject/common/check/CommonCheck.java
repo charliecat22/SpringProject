@@ -14,6 +14,14 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class CommonCheck extends AbstractCheck {
+    private static CommonCheck commonCheck = new CommonCheck();
+
+    private CommonCheck() {
+    }
+
+    public static CommonCheck getInstance() {
+        return commonCheck;
+    }
 
     @Override
     public <T> boolean check(T pojo) {
