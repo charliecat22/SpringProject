@@ -47,4 +47,10 @@ public class BeanCache extends AbstractCache<String, String, String> {
     public String get(String key) {
         return beanCacheMap.get(key);
     }
+
+
+    @Override
+    void clean(String key) {
+        //清理map
+    }
 }

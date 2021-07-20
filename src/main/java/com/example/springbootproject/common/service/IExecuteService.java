@@ -28,4 +28,13 @@ public interface IExecuteService {
      * @return 业务指标结果集
      */
     <T> List<IndicatorResultBO> execute(T pojo);
+
+    /**
+     * 交易方式字段校验
+     *
+     * @param pojo
+     * @param <T>
+     * @return
+     */
+    <T> boolean check(T pojo);
 }

@@ -1,5 +1,6 @@
-package com.example.springbootproject.security.check;
+package com.example.springbootproject.security.check.securityBuy;
 
+import com.example.springbootproject.security.check.SecurityCheck;
 import com.example.springbootproject.security.dto.SecurityBuyDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -1,10 +1,11 @@
-package com.example.springbootproject.security.impl;
+package com.example.springbootproject.security.impl.securityBuy;
 
 import com.example.springbootproject.common.bo.IndicatorResultBO;
 import com.example.springbootproject.common.constant.BeanIdConstant;
 import com.example.springbootproject.common.service.IExecuteService;
-import com.example.springbootproject.security.check.SecurityBuyCheck;
+import com.example.springbootproject.security.check.securityBuy.SecurityBuyCheck;
 import com.example.springbootproject.security.dto.SecurityBuyDTO;
+import com.example.springbootproject.security.impl.SecurityImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ import java.util.List;
  **/
 @Service(BeanIdConstant.SECURITY_BUY)
 @Slf4j
-public class SecurityBuyExecute implements IExecuteService {
+public class SecurityBuyExecute extends SecurityImpl implements IExecuteService {
 
     @Override
     public <R> boolean ruleCheck(R rule) {
@@ -45,5 +46,18 @@ public class SecurityBuyExecute implements IExecuteService {
             log.error("该流水校验未通过!", securityBuyDTO.getTradeMode());
         }
         return indicatorResultBOList;
+    }
+
+    /**
+     * 交易方式字段校验
+     *
+     * @param pojo
+     * @return
+     */
+    @Override
+    public <T> boolean check(T pojo) {
+        //交易方式字段校验
+        super.typeCheck(pojo);
+        return true;
     }
 }

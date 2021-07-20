@@ -25,8 +25,16 @@ public abstract class AbstractCache<V, K, C> {
     /**
      * 获取值
      *
-     * @param key
+     * @param pojo
      * @return
      */
-    abstract V get(K key);
+    abstract V get(K pojo);
+
+    /**
+     * 清除缓存
+     *
+     * @param pojo
+     * @return
+     */
+    abstract void clean(K pojo);
 }
